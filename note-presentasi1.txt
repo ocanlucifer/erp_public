@@ -1,0 +1,56 @@
+=== PO ACC ===
+== Doing
+-> beuatify javascript
+-> Round
+    - pembulatan setiap data material_br pada field quantity, nilai amount mengikuti
+-> convert unit,
+    - ketika add convert unit, semua material_br yang unitnya dicantumkan di source berubah jadi target, dan qtynya sesuai perhitungan
+    - ketika delete convert unit, semua material_br yang unitnya dicantumkan di target berubah jadi source, dan qtynya sesuai perhitungan
+
+== Main Index
+-> Show
+-> create (segala yang look up, tidak di buat dulu karena table belum ada)
+-> destroy
+-> edit
+-> filter (unconfirmed, pending, reviewed, confirmed)
+-> search
+
+Rumus :
+Amount/Budget PO = Price * Quantity
+
+=== Marker calculation ====
+=> (print) pdf to image then input to the new document
+
+=== Marker Check Production ===
+=> (print) pdf to image then input to the new document
+=> di mcp itu fabric nya sama tapi warnanya beda jadi harus input ulang banyak (detailnya ), dari create worksheet ke bawahnya sama ajaa. bedanya cuma sampe worksheetnya aja
+=> jika effisiensi body 1 tidak 85% haru ada allow dari gartech
+
+=== Production Marker ===
+
+=======================================================================================
+
+MASUKAN dan REVISI
+
+•	Rumus perhitungan quantity di marker worksheet adalah Worksheet Qty + tolerance(dalam bentuk %)
+•	Perhitungan Konsumsi Kg/Dz = (Panjang + toleransi) x (Lebar + toleransi) x Gramasi / 1000 / Skala x 12
+•	Perhitungan Konsumsi Yard/Dz = (Panjang + toleransi)  / 0.914 / Skala x 12
+•	Perhitungan Konsumsi Meter/Dz = (Panjang + toleransi) / Skala x 12
+•	Perhitungan Qty per Yard, Kg dan meter = Jumlah Ampar x Total Skala x Konsumsi / 12
+•	Perhitungan untuk “ujung kain” di skip dulu
+•	Perhitungan untuk costing di marker calculation details tidak perlu di bagi 12 karena value yang di butuhkan adalah per sdsxcpcs
+
+* Sales Order
+-	material requirement di pisah antara kain dan accessories, di buatkan button terpisah
+-	di buatkan fitur sycn tolerance agar user tidak harus berulang kali mengisi value tolerance yang sama.
+-   material requirement bisa di input jika quantitiy breakdown dan budget telah di input (budget yang diinput adalah budget internal (-5%))
+-	Material Requirements ngelink dari RKK, tidak perlu input ulang lagi. Hanya input code RKK saja
+-	Untuk validasi, budget kain ada di RKK. Sedangkan untuk Accs ada di PO.
+-	Muncul warning jika budget di PO lebih besar dari budget costsheet.
+
+* Quotation
+-	Untuk budget internal handling dan sales fee jangan di kurangi.
+-	Hasil pengurangan dari setiap value di tambahkan ke margin untuk budget internal
+
+* Marker Check Production
+-	breakdown di link sama “SO – assortment” sehingga tidak usah input ulang, dan nanti di beri pilihan untuk quantity nya apakah sama atau mau di tambah (value penambahnya dalam bentuk %).
